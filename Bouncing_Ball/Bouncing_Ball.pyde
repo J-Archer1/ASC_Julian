@@ -14,7 +14,7 @@ horizontaldir = True # true means go right and false means go left
 def setup():
     size(800,700)
     fill(0,0,0)
-    
+    frameRate(120)
 def draw():
     global x
     global y
@@ -24,6 +24,8 @@ def draw():
     background(255)
     noStroke()
     ellipse(x,y,100,100)
+    '''photo = loadImage("thatsprettygood.jpg")
+    image(photo, x, y, 100, 100)'''
     if x >= 750:# if it reaches to the end of the screen to the right
         horizontaldir = False
         speed = randint(1,20)
@@ -39,7 +41,7 @@ def draw():
     if y <= 50:
         verticaldir = True
         speed = randint(1,20)
-        fill(randint(0,255),randint(0,255),randint(0,255))
+        #fill(randint(0,255),randint(0,255),randint(0,255))
     if horizontaldir == True:
         x = x + speed
     else: 
