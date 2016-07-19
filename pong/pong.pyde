@@ -15,6 +15,7 @@ def start_setup():
     global speed
     x = 0
     y = 0
+    #Ball starting location
     paddleX = 0
     paddleY = 0
     speed =4
@@ -27,18 +28,21 @@ def keyPressed():
     global paddleX
     global paddleY
     print("pressed %s %d" % (key,keyCode))
+    #Outputs what keys you're pressing.
     if keyCode == 39 and paddleX < 600:
         paddleX += 20
-    if keyCode == 37 and paddleX > 0:
+    if keyCode == 37 and paddleX > 0:    
         paddleX -= 20
+    #Left and Right arrow keys
     if keyCode == 68 and paddleY < 600:
         paddleY += 20
     if keyCode == 65 and paddleY > 0:
         paddleY -= 20 
+    #A for left, D for right
     if keyCode == 82:
         start_setup()
         text("New Game",100,300, 30) 
-        
+    #Reset ^^^^
 def setup():
     size(800,700)
     fill(0,0,0)
@@ -57,6 +61,9 @@ def draw():
     fill(255,255,255)
     player1 = rect(paddleX,20,200,20)
     player2 = rect(paddleY, 660,200,20)
+    #Player 1 and Player 2 paddles
+    #Left and Right for player 1
+    #A and D for player 2
     player1
     player2
     ball
@@ -64,16 +71,16 @@ def draw():
     image(photo, x, y, 100, 100)'''
     if x >= 780: #if it reaches to the end of the screen to the right
         horizontaldir = False
-        #speed = randint(1,20)
-        #fill(randint(0,255),randint(0,255),randint(0,255))
+    #speed = randint(1,20)
+    #fill(randint(0,255),randint(0,255),randint(0,255))
     #if y >= 680:
-     #   verticaldir = False
-      #  speed = randint(1,2)
-        #fill(randint(0,255),randint(0,255),randint(0,255))
+    #verticaldir = False
+    #speed = randint(1,2)
+    #fill(randint(0,255),randint(0,255),randint(0,255))
     if x <= 0:
         horizontaldir = True
-        #speed = randint(1,3)
-        #fill(randint(0,255),randint(0,255),randint(0,255))
+    #speed = randint(1,3)
+    #fill(randint(0,255),randint(0,255),randint(0,255))
     if y ==40 and (paddleX<x<paddleX+200):#paddleX <= x and paddleX >= x+200:
         verticaldir = True
         speed = randint(2,3)
@@ -81,9 +88,9 @@ def draw():
         verticaldir = False
     
     elif y <= 0:
-        textSize(60)
+        textSize(40)
         fill(255,255,255)
-        text(" Player 2 Wins! Press (r) \n to restart \n made by Julian Archer",100,300, 30)
+        text(" Player 2 Wins! Press (r) \n to restart \n made by Julian Archer (c)",100,300, 30)
 
     elif paddleX >= x and paddleX + 200 <= x and y <= 35:
         verticaldir = True
@@ -95,11 +102,12 @@ def draw():
     elif y >= 700:
         textSize(40)
         fill(255)
-        text(" Player 1 Wins! Press (r) \n to restart \n made by Julian Archer",100,300,50)
+        text(" Player 1 Wins! Press (r) \n to restart. \n made by Julian Archer (c)",100,300,50)
     
     
         
         #fill(randint(0,255),randint(0,255),randint(0,255))
+    #edit these values if you want a faster ball
     if horizontaldir == True:
         x = x + 2
     else: 
